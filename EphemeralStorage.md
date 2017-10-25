@@ -1,22 +1,3 @@
-
-
-## Overview
-
-
-
-
-
-## Amazon EC2 Walk Through
-
-Log into the AWS EC2 console at:
-
-* https://console.aws.amazon.com/ec2
-
-### Launch Instance/Review Storage Options
-* Click the "Launch Instance" button
-* Click the "Select" Amazon Linux button
-* Review the Instance and EBS storage options
-
 ## OpenStack Nova Walkthough
 
 Log into the OpenStack Horizon web dashboard and proceed to the compute page.
@@ -29,10 +10,6 @@ Click the "Launch Instance" button
 * Source: CirrosWeb
 * Flavor: a1.tiny (Review the other available flavors)
 * Launch
-
-### Log In
-* Click "Associate Floating IP" and allocate/add an external IP address
-* Run PuTTY/SSH and login to assigned floating IP as admin/openstack
 
 ### Utilize the ephemeral disk
 * Become superuser (root)
