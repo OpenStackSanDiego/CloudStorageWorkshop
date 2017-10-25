@@ -10,6 +10,17 @@ resource "null_resource" "labs" {
   }
 
   provisioner "file" {
+    source      = "OpenStackVolumeTypes.sh"
+    destination = "OpenStackVolumeTypes.sh"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "bash OpenStackVolumeTypes.sh > OpenStackVolumeTypes.out",
+    ]
+  }
+
+  provisioner "file" {
     source      = "Labs.sh"
     destination = "Labs.sh"
   }
