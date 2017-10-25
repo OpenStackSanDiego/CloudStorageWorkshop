@@ -1,14 +1,42 @@
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root (sudo)"
-  exit
-fi
-
+#
+# one shared project with a shared network
+#
 source ~/keystonerc_admin
+
+PROJECT=storage
+PROJECT_ID=`openstack project create $PROJECT -f value -c id`
+
+NETWORK_ID=`openstack network create internal --project $PROJECT_ID -f value -c id`
+
+DNS_NAMESERVER=`grep -i nameserver /etc/resolv.conf | cut -d ' ' -f2 | head -1`
+INTERNAL_SUBNET=192.168.0.0/16
+
+SUBNET_ID=`openstack subnet create              \
+        --network $NETWORK_ID                   \
+        --dns-nameserver $DNS_NAMESERVER        \
+        --subnet-range $INTERNAL_SUBNET         \
+        --project $PROJECT_ID                   \
+        $INTERNAL_SUBNET -f value -c id`
+
+
+ROUTER_ID=`openstack router create --project $PROJECT_ID internal-gw -f value -c id`
+openstack router add subnet $ROUTER_ID $SUBNET_ID
+
+PUBLIC_NETWORK_ID=`openstack network show public -f value -c id`
+openstack router set --external-gateway $PUBLIC_NETWORK_ID $ROUTER_ID
+
+sleep 2
+# setup route from physical server to this subnet
+until NET_GATEWAY=$(sudo ip netns exec qrouter-"${ROUTER_ID}" ip -4 route get 8.8.8.8 | head -n1 | awk '{print $7}')
+do
+  sleep 2
+done
+ip route replace "${INTERNAL_SUBNET}" via $NET_GATEWAY
+
 
 for i in 16 17;
 do
 
-PROJECT=project$i
 USER=user$i
 USER_HOME=`eval echo "~$USER"`
 
@@ -46,8 +74,6 @@ cat >> $USER_HOME/.bash_profile << EOF
 
 EOF
 
-PROJECT_ID=`openstack project create $PROJECT -f value -c id`
-
 openstack user create --password "openstack" $USER
 
 openstack role create $USER
@@ -55,38 +81,6 @@ openstack role create $USER
 openstack role add --project $PROJECT --user $USER $USER
 openstack role add --project $PROJECT --user $USER _member_
 
-NETWORK_ID=`openstack network create internal --project $PROJECT_ID -f value -c id`
-
-DNS_NAMESERVER=`grep -i nameserver /etc/resolv.conf | cut -d ' ' -f2 | head -1`
-INTERNAL_SUBNET=192.168.$i.0/24
-
-SUBNET_ID=`openstack subnet create              \
-        --network $NETWORK_ID                   \
-        --dns-nameserver $DNS_NAMESERVER        \
-        --subnet-range $INTERNAL_SUBNET         \
-        --project $PROJECT_ID                   \
-        $INTERNAL_SUBNET -f value -c id`
-
-ROUTER_ID=`openstack router create --project $PROJECT_ID router$i -f value -c id`
-openstack router add subnet $ROUTER_ID $SUBNET_ID
-
-PUBLIC_NETWORK_ID=`openstack network show public -f value -c id`
-openstack router set --external-gateway $PUBLIC_NETWORK_ID $ROUTER_ID
-
-# setup route from physical server to this subnet
-NET_GATEWAY=$(sudo ip netns exec qrouter-"${ROUTER_ID}" ip -4 route get 8.8.8.8 | head -n1 | awk '{print $7}')
-sleep 2
-if [ "${NET_GATEWAY}" = "" ]; then
-  echo "waiting for network..."
-  sleep 2
-  NET_GATEWAY=$(sudo ip netns exec qrouter-"${ROUTER_ID}" ip -4 route get 8.8.8.8 | head -n1 | awk '{print $7}')
-fi
-if [ "${NET_GATEWAY}" = "" ]; then
-  echo "waiting for network..."
-  sleep 5
-  NET_GATEWAY=$(sudo ip netns exec qrouter-"${ROUTER_ID}" ip -4 route get 8.8.8.8 | head -n1 | awk '{print $7}')
-fi
-ip route replace "${INTERNAL_SUBNET}" via $NET_GATEWAY
 
 done
 
