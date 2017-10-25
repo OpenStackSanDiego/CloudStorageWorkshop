@@ -1,4 +1,4 @@
-## OpenStack Nova Walkthough
+## OpenStack Ephemeral Storage
 
 Log into the OpenStack Horizon web dashboard and proceed to the compute page.
 
