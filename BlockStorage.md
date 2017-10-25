@@ -1,47 +1,4 @@
-
-
-
-## Overview
-
-
-
-
-
-## Amazon Elastic Block Storage Walk Through
-
-Log into the AWS EC2 console at:
-
-* https://console.aws.amazon.com/ec2
-
-Click over to the Elastic Block Storage page:
-
-* Elastic Block Storage->Volumes
-
-### Create Volume
-* Click the "Create Volume"
-* Click the "Select" Amazon Linux button
-* Name this new volume "web files"
-* Note the availability zone
-
-### Start an Instance
-* Start a new Amazon Linux t2.micro with an EBS volume (Add Storage->Add Volume)
-* This instance needs to be in the same availability zone as the volume
-* Note the new instance name
-
-### Add the Volume to the Instance
-* On the EBS page, associate the "web files" volume with the instance
-
-### Terminate the Instance
-* On the EC2 page, terminate the instance
-* The volumes will contine to exist
-
-## Clean Up
-* Make sure to terminate and delete all the volumes otherwise charges will accrue!
-
-
-
-
-## OpenStack Nova Walkthough
+## OpenStack Block Storage
 
 Log into the OpenStack Horizon web dashboard and proceed to the compute page.
 
