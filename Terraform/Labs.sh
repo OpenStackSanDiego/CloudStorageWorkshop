@@ -5,6 +5,9 @@ source ~/keystonerc_admin
 
 openstack flavor create --ram 512 --disk 1 --ephemeral 1 a1.tiny
 
+openstack security group rule create --dst-port 80 --protocol tcp --ingress default
+openstack security group rule create --dst-port 22 --protocol tcp --ingress default
+
 STORAGE_PROJECT_ID=`openstack project create storage -f value -c id`
 NETWORK_ID=`openstack network create internal --share --project $STORAGE_PROJECT_ID -f value -c id`
 
@@ -51,9 +54,6 @@ openstack quota set --cores 2 $PROJECT
 openstack quota set --gigabytes 6 $PROJECT
 openstack quota set --snapshots 2 $PROJECT
 openstack quota set --volumes 4 $PROJECT
-
-openstack security group rule create --dst-port 80 --protocol tcp --ingress --project $PROJECT default
-openstack security group rule create --dst-port 22 --protocol tcp --ingress --project $PROJECT default
 
 # userXX/openstack
 adduser -p 42ZTHaRqaaYvI $USER -G wheel
