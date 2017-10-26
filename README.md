@@ -14,8 +14,8 @@ Workshop overview and goals...
 
 # Workshop Exercises
 
-* <A HREF="ObjectStorage.md">Object Exercise</A> 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A>
+* <A HREF="ObjectStorage.md">Object Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
 
 # Challenge
