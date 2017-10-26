@@ -12,31 +12,21 @@ Workshop overview and goals...
 | VM Image       | Boot & Snapshots Images  | S3                            | Glance    |  |
 | File           | Shared File Systems      | Elastic File Storage (EFS)    | Manila    |  |
 
-# Object Storage Exercise
 
-* Create bucket on Swift
-* Upload file to Swift
-* Download file
+# Challenge
 
-# Ephermeral Storage Exercise
+Create a virtual machine with:
 
-* Review Flavors
-* Boot VM
-* Add extra ephmeral volume as swap
+* Swap on ephemeral disk
+* One 'Gold' type volume as /var/www/html
+* One 'Bronze' type volume as /mnt/backups
 
-# Block Storage Exercise
+# Ultimate Challenge
 
-* Review Volume Types
-* Create Volume
-* Boot VM
-* Attach volumes within VM
-* Terminate VMs
-* Migrate volumes to an alternate VM
-
-# Snapshot Storage
-
-* Snapshot VM
-* Boot from Snapshot
+* Run a webserver on the virtual machine
+* Serve "index.html" that includes an embedded image (IMG SRC) to an image on Swift
+* Include your name/handle, lab #, and user account # in the index.html page
+* Tweet or email us the URL
 
 
 
