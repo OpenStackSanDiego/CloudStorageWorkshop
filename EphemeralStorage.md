@@ -27,12 +27,6 @@ cat /proc/swaps
 
 ## Wrap Up
 
-```bash
-exit
-```
-
-```bash
-openstack server delete cirros
-```
+Log out of the Cirros instance. Don't delete the instance since it will be used in later exercises.
 
 Once you're done, return back to the <A HREF="../master/README.md">main page</A> for the next type of storage!
