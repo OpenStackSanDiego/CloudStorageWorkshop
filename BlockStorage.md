@@ -2,8 +2,10 @@
 
 ### Volume Types Available
 
+```bash
 openstack volume type list
-openstavk volume type show Gold
+openstack volume type show Gold
+```
 
 ### Create Volume
 
