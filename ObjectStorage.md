@@ -1,20 +1,26 @@
 ## OpenStack Swift Walk Through
 
-Log into the OpenStack Horizon web dashboard and proceed to the object storage page.
+Log into the OpenStack Horizon web dashboard and proceed to the object storage page. Use the OpenStack lab URL and username/password provided.
 
 * Object Store->Container
 
 ### Create Bucket
 * "+ Container"
-* Enter new container name (i.e. web)
+* Name the container 'images'
 * Mark container "Public"
 
 ### Upload Data
-* Select the new container
-* Click the "upload" button to right of search box
-* Pick a file and upload
+
+Log into the OpenStack lab via SSH using the lab and username/password provided.
+
+```bash
+openstack container list
+openstack container show images
+openstack object create images heroimage.jpeg
+```
 
 ### Download Data
+* Return to the web page
 * Click the file to download
 
 ## Wrap Up

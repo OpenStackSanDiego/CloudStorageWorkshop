@@ -2,8 +2,10 @@
 
 ### Volume Types Available
 
+```bash
 openstack volume type list
-openstavk volume type show Gold
+openstack volume type show Gold
+```
 
 ### Create Volume
 
@@ -38,28 +40,45 @@ mount /dev/vdc /var/www/
 df
 ls /var/www
 echo "hello world" > /var/www/index.html
+ls /var/www/
 cat /var/www/index.html
 umount /var/www
+exit
 ```
 
-
-### Move the volume to a second instance
-* Terminate the first instance
-* Start a new instance
-* Associate the volume with the new instance
-* Login and mount the disk
-* Do NOT create a new file system (that will erase the existing files)
-* Check that the file create from the first instance exists
+### Deallocate the Volume from the Virtual Machine
 
 ```bash
 openstack server remove volume cirros webfiles
-openstack server delete cirros
-openstack server create --flavor a1.tiny --image cirros --nic net-id=internal cirros2
-openstack server add volume cirros2 
-openstack server list
 ```
 
+### Snapshot and Delete the Virtual Machine
+
 ```bash
+openstack snapshot ... cirros-snapshot
+openstack server delete cirros
+```
+
+
+### Create a replacement Virtual Machine from the Snapshot
+
+```bash
+openstack server create ... cirros2
+```
+
+### Move the volume to a second instance
+
+
+```bash
+openstack server list
+openstack volume list
+openstack server add volume cirros2 webfiles
+```
+
+### Mount the volume on the second instance
+
+```bash
+openstack server list
 ssh cirros@CIRROS2_IP_ADDR_HERE
 sudo su -
 fdisk -l
@@ -72,6 +91,8 @@ cat /var/www/index.html
 ```
 
 ## Wrap Up
+
+Congrats! You accomplished some basic block and snapshot actions!
 
 Log out of the Cirros instance.
 
