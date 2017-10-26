@@ -18,6 +18,7 @@ openstack server show cirros -f value -c addresses
 
 ```bash
 ssh cirros@IP_ADDRESS_HERE
+sudo su -
 cat /proc/swaps
 mkswap -f /dev/vdb
 swapon /dev/vdb
