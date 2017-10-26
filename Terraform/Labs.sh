@@ -3,10 +3,10 @@
 #
 source ~/keystonerc_admin
 
-PROJECT=storage
-PROJECT_ID=`openstack project create $PROJECT -f value -c id`
+openstack flavor create --ram 512 --disk 1 --ephemeral 1 a1.tiny
 
-NETWORK_ID=`openstack network create internal --project $PROJECT_ID -f value -c id`
+STORAGE_PROJECT_ID=`openstack project create storage -f value -c id`
+NETWORK_ID=`openstack network create internal --share --project $STORAGE_PROJECT_ID -f value -c id`
 
 DNS_NAMESERVER=`grep -i nameserver /etc/resolv.conf | cut -d ' ' -f2 | head -1`
 INTERNAL_SUBNET=192.168.0.0/16
@@ -15,11 +15,11 @@ SUBNET_ID=`openstack subnet create              \
         --network $NETWORK_ID                   \
         --dns-nameserver $DNS_NAMESERVER        \
         --subnet-range $INTERNAL_SUBNET         \
-        --project $PROJECT_ID                   \
+        --project $STORAGE_PROJECT_ID           \
         $INTERNAL_SUBNET -f value -c id`
 
 
-ROUTER_ID=`openstack router create --project $PROJECT_ID internal-gw -f value -c id`
+ROUTER_ID=`openstack router create --project $STORAGE_PROJECT_ID internal-gw -f value -c id`
 openstack router add subnet $ROUTER_ID $SUBNET_ID
 
 PUBLIC_NETWORK_ID=`openstack network show public -f value -c id`
@@ -34,13 +34,26 @@ done
 ip route replace "${INTERNAL_SUBNET}" via $NET_GATEWAY
 
 
-for i in 16 17;
+for i in $(seq 1 3)
 do
 
 USER=user$i
 USER_HOME=`eval echo "~$USER"`
+PROJECT=storage$i
 
 echo $PROJECT $USER $USER_HOME
+
+PROJECT_ID=`openstack project create $PROJECT -f value -c id`
+
+openstack quota set --floating-ips 1 $PROJECT
+openstack quota set --instances 2 $PROJECT
+openstack quota set --cores 2 $PROJECT
+openstack quota set --gigabytes 6 $PROJECT
+openstack quota set --snapshots 2 $PROJECT
+openstack quota set --volumes 4 $PROJECT
+
+openstack security group rule create --dst-port 80 --protocol tcp --ingress --project $PROJECT default
+openstack security group rule create --dst-port 22 --protocol tcp --ingress --project $PROJECT default
 
 # userXX/openstack
 adduser -p 42ZTHaRqaaYvI $USER -G wheel
