@@ -95,6 +95,9 @@ openstack role add --project $PROJECT --user $USER $USER
 openstack role add --project $PROJECT --user $USER _member_
 
 
+# sample file to use with Swift
+wget http://www.openstacksandiego.org/assets/heroimage.jpeg -O $USER_HOME/heroimage.jpeg > /dev/null
+
 done
 
 sed -i 's/^PasswordAuthentication.*/PasswordAuthentication yes/' /etc/ssh/sshd_config
