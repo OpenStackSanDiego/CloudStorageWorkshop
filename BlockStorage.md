@@ -1,16 +1,25 @@
 ## OpenStack Block Storage
 
+### Volume Types Available
+
+openstack volume type list
+openstavk volume type show Gold
+
 ### Create Volume
-* Click "Create Volume+"
-* Name this new volume "web files"
-* Click "Create Volume"
+
+```bash
+openstack volume create --size 1 --type Gold webfiles
+```
 
 ### Add the Volume to the Instance
+
+```bash
+openstack server add volume --device /dev/vdc cirros webfiles
+```
 * On the Compute page, from the instance drop down, select "Attach Volume" and select "web files"
 
-### Log In
 
-### Utilize the volume
+### Utilize the Volume
 * Become superuser (root)
 * Examine disks
 * Mount the volume
@@ -18,10 +27,12 @@
 * Unmount the volume
 
 ```
+openstack server list
+ssh cirros@CIRROS_IP_ADDR_HERE
 sudo su -
 fdisk -l
 mkdir /var/www/
-mkfs -t ext4 -L www /dev/vdb
+mkfs -t ext4 -L webfiles /dev/vdc
 blkid
 mount /dev/vdc /var/www/
 df
@@ -40,7 +51,16 @@ umount /var/www
 * Do NOT create a new file system (that will erase the existing files)
 * Check that the file create from the first instance exists
 
+```bash
+openstack server remove volume cirros webfiles
+openstack server delete cirros
+openstack server create --flavor a1.tiny --image cirros --nic net-id=internal cirros2
+openstack server add volume cirros2 
+openstack server list
 ```
+
+```bash
+ssh cirros@CIRROS2_IP_ADDR_HERE
 sudo su -
 fdisk -l
 mkdir /var/www/
