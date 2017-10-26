@@ -1,34 +1,32 @@
 ## OpenStack Ephemeral Storage
 
-Log into the OpenStack Horizon web dashboard and proceed to the compute page.
+## Review the Flavors
 
-* Project->Compute->Instance
-
-### Launch Instance/Review Storage Options
-Click the "Launch Instance" button
-* Instance Name: web
-* Source: CirrosWeb
-* Flavor: a1.tiny (Review the other available flavors)
-* Launch
-
-### Utilize the ephemeral disk
-* Become superuser (root)
-* Examine disks
-* Mount the ephemeral disk
-
+```bash
+openstack flavor list
+openstack flavor show a1.tiny
 ```
+
+### Launch an Instance
+
+```bash
+openstack server create --flavor a1.tiny --image cirros --nic net-id=internal cirros
+openstack server show cirros -f value -c addresses
+```
+
+### Utilize the ephemeral disk as Swap
+
+```bash
+ssh cirros@IP_ADDRESS_HERE
 sudo su -
-fdisk -l
-mkdir /var/www/
-mkfs -t ext4 -L www /dev/vdb
-blkid
-mount /dev/vdb /var/www/
-df
-ls /var/www
-echo "hello world" > /var/www/index.html
-cat /var/www/index.html
+cat /proc/swaps
+mkswap -f /dev/vdb
+swapon /dev/vdb
+cat /proc/swaps
 ```
 
 ## Wrap Up
+
+Log out of the Cirros instance. Don't delete the instance since it will be used in later exercises.
 
 Once you're done, return back to the <A HREF="../master/README.md">main page</A> for the next type of storage!
