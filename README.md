@@ -14,13 +14,13 @@ Workshop overview and goals...
 
 # Workshop Exercises
 
-* <A HREF="EphemeralStorage.md">Ephemeral Exercise</A>
-* <A HREF="ObjectStorage.md">Object Exercise</A> 
+* <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
+* <A HREF="ObjectStorage.md">Object Exercise</A>
 
 # Challenge
 
-Once you've walked through the three exercises above, you're welcome to tackle the challenges below!
+Once you've walked through the three exercises above, tackle the challenges below!
 
 * Create a a1.tiny Cirros virtual machine with:
 * Swap on ephemeral disk
