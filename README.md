@@ -30,11 +30,12 @@ Once you've walked through the three exercises above, tackle the challenges belo
 
 # Expert Challenge
 
-* Create a virtual machine some sort of web server running on it
+* Create a virtual machine with:
+* Web server installed on the virtual machines
 * Serve "index.html" that includes an embedded image (IMG SRC) to an image on Swift
 * The system needs to be accessible from the Internet on port 80
 * Include your name/handle, lab #, and user account # in the index.html page
-* Tweet or email us the URL
+* Tweet us the URL with the tag "@OpenStackSanDiego"
 
 
 
