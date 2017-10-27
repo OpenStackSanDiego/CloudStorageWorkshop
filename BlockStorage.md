@@ -4,13 +4,15 @@
 
 ```bash
 [user1@lab1]$ openstack volume type list
-[user1@lab1]$ openstack volume type show Gold
+[user1@lab1]$ openstack volume type show Silver
 ```
 
 ### Create Volume
 
+Select Silver based upon the IOPS (Input/Output operations per Second) guaranteed for that type of storage.
+
 ```bash
-[user1@lab1]$ openstack volume create --size 1 --type Gold webfiles
+[user1@lab1]$ openstack volume create --size 1 --type Silver webfiles
 ```
 
 ### Add the Volume to the Instance
