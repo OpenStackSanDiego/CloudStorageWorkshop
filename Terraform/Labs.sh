@@ -5,9 +5,6 @@ source ~/keystonerc_admin
 
 openstack flavor create --ram 512 --disk 1 --ephemeral 1 a1.tiny
 
-openstack security group rule create --dst-port 80 --protocol tcp --ingress default
-openstack security group rule create --dst-port 22 --protocol tcp --ingress default
-
 STORAGE_PROJECT_ID=`openstack project create storage -f value -c id`
 NETWORK_ID=`openstack network create internal --share --project $STORAGE_PROJECT_ID -f value -c id`
 
@@ -94,6 +91,9 @@ openstack role create $USER
 openstack role add --project $PROJECT --user $USER $USER
 openstack role add --project $PROJECT --user $USER _member_
 
+SECURITY_GROUP=`openstack security group rule create --project $PROJECT default -f value -c id`
+openstack security group rule create --dst-port 80 --protocol tcp --ingress --project $PROJECT default
+openstack security group rule create --dst-port 22 --protocol tcp --ingress --project $PROJECT default
 
 # sample file to use with Swift
 wget http://www.openstacksandiego.org/assets/heroimage.jpeg -O $USER_HOME/heroimage.jpeg > /dev/null
