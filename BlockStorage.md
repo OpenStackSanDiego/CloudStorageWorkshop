@@ -3,97 +3,108 @@
 ### Volume Types Available
 
 ```bash
-openstack volume type list
-openstack volume type show Gold
+[user1@lab1]$ openstack volume type list
+[user1@lab1]$ openstack volume type show Silver
 ```
 
 ### Create Volume
 
+Select Silver based upon the IOPS (Input/Output operations per Second) guaranteed for that type of storage.
+
 ```bash
-openstack volume create --size 1 --type Gold webfiles
+[user1@lab1]$ openstack volume create --size 1 --type Silver webfiles
 ```
 
 ### Add the Volume to the Instance
 
 ```bash
-openstack server add volume --device /dev/vdc cirros webfiles
+[user1@lab1]$ openstack server add volume --device /dev/vdc cirros webfiles
 ```
-* On the Compute page, from the instance drop down, select "Attach Volume" and select "web files"
-
 
 ### Utilize the Volume
-* Become superuser (root)
-* Examine disks
-* Mount the volume
-* Add a file
-* Unmount the volume
 
 ```
-openstack server list
-ssh cirros@CIRROS_IP_ADDR_HERE
-sudo su -
-fdisk -l
-mkdir /var/www/
-mkfs -t ext4 -L webfiles /dev/vdc
-blkid
-mount /dev/vdc /var/www/
-df
-ls /var/www
-echo "hello world" > /var/www/index.html
-ls /var/www/
-cat /var/www/index.html
-umount /var/www
-exit
+[user1@lab1]$ openstack server list
+[user1@lab1]$ ssh cirros@CIRROS_IP_ADDR_HERE
+$ sudo su -
+# fdisk -l
+# mkdir /var/www/
+# mkfs -t ext4 -L webfiles /dev/vdc
+# blkid
+# mount /dev/vdc /var/www/
+# df
+# ls /var/www
+# echo "hello world" > /var/www/index.html
+# ls /var/www/
+# cat /var/www/index.html
+# umount /var/www
+# exit
+$ exit
 ```
 
 ### Deallocate the Volume from the Virtual Machine
 
 ```bash
-openstack server remove volume cirros webfiles
+[user1@lab1]$ openstack server remove volume cirros webfiles
+[user1@lab1]$ openstack server list
+[user1@lab1]$ openstack volume list
 ```
 
 ### Snapshot and Delete the Virtual Machine
 
 ```bash
-openstack snapshot ... cirros-snapshot
-openstack server delete cirros
+[user1@lab1]$ openstack server image create --name cirros-snapshot cirros
+[user1@lab1]$ openstack image list
+[user1@lab1]$ openstack image show cirros-snapshot
+[user1@lab1]$ openstack server delete cirros
+[user1@lab1]$ openstack server list
 ```
 
 
 ### Create a replacement Virtual Machine from the Snapshot
 
 ```bash
-openstack server create ... cirros2
+[user1@lab1]$ openstack server create --flavor a1.tiny --image cirros-snapshot --nic net-id=internal cirros2
 ```
 
 ### Move the volume to a second instance
 
 
 ```bash
-openstack server list
-openstack volume list
-openstack server add volume cirros2 webfiles
+[user1@lab1]$ openstack server list
+[user1@lab1]$ openstack volume list
+[user1@lab1]$ openstack server add volume cirros2 webfiles
+[user1@lab1]$ openstack volume list
 ```
 
 ### Mount the volume on the second instance
 
 ```bash
-openstack server list
-ssh cirros@CIRROS2_IP_ADDR_HERE
-sudo su -
-fdisk -l
-mkdir /var/www/
-blkid
-mount /dev/vdb /var/www/
-df
-ls /var/www
-cat /var/www/index.html
+[user1@lab1]$ openstack server list
+[user1@lab1]$ ssh cirros@CIRROS2_IP_ADDR_HERE
+$ sudo su -
+# ls /var/www
+# blkid
+# mount /dev/vdc /var/www/
+# df
+# ls /var/www
+# cat /var/www/index.html
+# exit
+$ exit
+```
+
+### Clean Up
+
+``` bash
+
+[user1@lab1]$ openstack server delete cirros2
+[user1@lab1]$ openstack volume delete webfiles
+[user1@lab1]$ openstack image delete cirros-snapshot
 ```
 
 ## Wrap Up
 
-Congrats! You accomplished some basic block and snapshot actions!
+Congrats! You accomplished some basic block storage and snapshot actions!
 
-Log out of the Cirros instance.
 
 Once you're done, return back to the <A HREF="../master/README.md">main page</A> for the next type of storage!

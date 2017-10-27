@@ -5,23 +5,44 @@ Log into the OpenStack Horizon web dashboard and proceed to the object storage p
 * Object Store->Container
 
 ### Create Bucket
-* "+ Container"
-* Name the container 'images'
-* Mark container "Public"
+
+Use the Horizon dashboard to create a new object storage bucket with public access.
+
+```bash
+[user1@lab1]$ openstack container create images
+[user1@lab1]$ swift post --read-acl .r:*,.rlistings images
+```
 
 ### Upload Data
 
-Log into the OpenStack lab via SSH using the lab and username/password provided.
+There's a default file heroimage.jpeg available to be uploaded into Swift.
 
 ```bash
-openstack container list
-openstack container show images
-openstack object create images heroimage.jpeg
+[user1@lab1]$ openstack container list
+[user1@lab1]$ openstack container show images
+[user1@lab1]$ openstack object create images heroimage.jpeg
 ```
 
-### Download Data
-* Return to the web page
-* Click the file to download
+### Create the file URL
+
+Using the CLI, retrieve the account number and use it to create a link to the file.
+
+* Retrieve the account id for the container 
+```bash
+[user1@lab1]$ openstack container show images -f value -c account
+```
+
+Build the URL using the format below:
+
+http://LAB_URL:8080/v1/ACCOUNT_NUMBER/CONTAINER_NAME/FILE_NAME
+
+Here's a sample URL:
+
+http://lab1.storage.openstacksandiego.us:8080/v1/AUTH_73768068a66d4c31b1ad1d4dd067fb78/images/heroimage.jpeg
+
+## Test the URL
+
+Paste the URL create above in a web browser and verify that the file downloads.
 
 ## Wrap Up
 
