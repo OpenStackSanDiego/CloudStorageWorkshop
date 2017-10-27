@@ -18,15 +18,8 @@
 ```bash
 [user1@lab1]$ openstack server add volume --device /dev/vdc cirros webfiles
 ```
-* On the Compute page, from the instance drop down, select "Attach Volume" and select "web files"
-
 
 ### Utilize the Volume
-* Become superuser (root)
-* Examine disks
-* Mount the volume
-* Add a file
-* Unmount the volume
 
 ```
 [user1@lab1]$ openstack server list
