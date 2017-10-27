@@ -23,7 +23,7 @@ There's a default file heroimage.jpeg available to be uploaded into Swift.
 [user1@lab1]$ openstack object create images heroimage.jpeg
 ```
 
-### Retrieve the URL
+### Create the file URL
 
 Using the CLI, retrieve the account number and use it to create a link to the file.
 
@@ -39,6 +39,10 @@ http://LAB_URL:8080/v1/ACCOUNT_NUMBER/CONTAINER_NAME/FILE_NAME
 Here's a sample URL:
 
 http://lab1.storage.openstacksandiego.us:8080/v1/AUTH_73768068a66d4c31b1ad1d4dd067fb78/images/heroimage.jpeg
+
+## Test the URL
+
+Paste the URL create above in a web browser and verify that the file downloads.
 
 ## Wrap Up
 
