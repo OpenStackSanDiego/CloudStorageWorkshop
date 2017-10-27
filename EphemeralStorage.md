@@ -16,6 +16,8 @@ openstack server show cirros -f value -c addresses
 
 ### Utilize the ephemeral disk as Swap
 
+* __cirros default password is cubswin:)__
+
 ```bash
 ssh cirros@IP_ADDRESS_HERE
 sudo su -
