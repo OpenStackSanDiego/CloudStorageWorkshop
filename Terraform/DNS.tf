@@ -21,6 +21,6 @@ resource "dnsimple_record" "dns" {
   name   = "${format("lab%d.storage", count.index)}"
   value  = "${element(packet_device.controller.*.access_public_ipv4, count.index)}"
   type   = "A"
-  ttl    = 3600
+  ttl    = 300
 }
 
