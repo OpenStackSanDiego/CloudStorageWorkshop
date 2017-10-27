@@ -3,20 +3,20 @@
 ### Volume Types Available
 
 ```bash
-openstack volume type list
-openstack volume type show Gold
+[user1@lab1]$ openstack server listopenstack volume type list
+[user1@lab1]$ openstack volume type show Gold
 ```
 
 ### Create Volume
 
 ```bash
-openstack volume create --size 1 --type Gold webfiles
+[user1@lab1]$ openstack volume create --size 1 --type Gold webfiles
 ```
 
 ### Add the Volume to the Instance
 
 ```bash
-openstack server add volume --device /dev/vdc cirros webfiles
+[user1@lab1]$ openstack server add volume --device /dev/vdc cirros webfiles
 ```
 * On the Compute page, from the instance drop down, select "Attach Volume" and select "web files"
 
@@ -29,27 +29,30 @@ openstack server add volume --device /dev/vdc cirros webfiles
 * Unmount the volume
 
 ```
-openstack server list
-ssh cirros@CIRROS_IP_ADDR_HERE
-sudo su -
-fdisk -l
-mkdir /var/www/
-mkfs -t ext4 -L webfiles /dev/vdc
-blkid
-mount /dev/vdc /var/www/
-df
-ls /var/www
-echo "hello world" > /var/www/index.html
-ls /var/www/
-cat /var/www/index.html
-umount /var/www
-exit
+[user1@lab1]$ openstack server list
+[user1@lab1]$ ssh cirros@CIRROS_IP_ADDR_HERE
+$ sudo su -
+# fdisk -l
+# mkdir /var/www/
+# mkfs -t ext4 -L webfiles /dev/vdc
+# blkid
+# mount /dev/vdc /var/www/
+# df
+# ls /var/www
+# echo "hello world" > /var/www/index.html
+# ls /var/www/
+# cat /var/www/index.html
+# umount /var/www
+# exit
+$ exit
 ```
 
 ### Deallocate the Volume from the Virtual Machine
 
 ```bash
-openstack server remove volume cirros webfiles
+[user1@lab1]$ openstack server remove volume cirros webfiles
+[user1@lab1]$ openstack server list
+[user1@lab1]$ openstack volume list
 ```
 
 ### Snapshot and Delete the Virtual Machine
