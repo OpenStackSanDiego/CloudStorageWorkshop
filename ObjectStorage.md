@@ -38,7 +38,7 @@ http://LAB_URL:8080/v1/ACCOUNT_NUMBER/CONTAINER_NAME/FILE_NAME
 
 Here's a sample URL:
 
-http://lab1.storage.openstacksandiego.us:8080/v1/AUTH_73768068a66d4c31b1ad1d4dd067fb78/images/Grit.jpg
+http://lab1.storage.openstacksandiego.us:8080/v1/AUTH_73768068a66d4c31b1ad1d4dd067fb78/images/heroimage.jpeg
 
 ## Wrap Up
 
