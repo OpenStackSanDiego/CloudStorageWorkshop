@@ -19,16 +19,23 @@ openstack server show cirros -f value -c addresses
 * __cirros default password is cubswin:)__
 
 ```bash
-ssh cirros@IP_ADDRESS_HERE
-sudo su -
-cat /proc/swaps
-mkswap -f /dev/vdb
-swapon /dev/vdb
-cat /proc/swaps
+[user1@lab1]$ ssh cirros@IP_ADDRESS_HERE
+$ sudo su -
+# cat /proc/swaps
+# mkswap -f /dev/vdb
+# swapon /dev/vdb
+# cat /proc/swaps
 ```
 
 ## Wrap Up
 
 Log out of the Cirros instance. Don't delete the instance since it will be used in later exercises.
+
+```bash
+# exit
+$ exit
+[user1@lab1]$ openstack server list
+```
+
 
 Once you're done, return back to the <A HREF="../master/README.md">main page</A> for the next type of storage!
