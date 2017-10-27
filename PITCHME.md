@@ -1,7 +1,7 @@
 # OpenStack Storage Workshop
 
 Workshop overview and goals...
-
+---
 # Storage Functions
 
 | Functionality  | Description              | OpenStack | Use Cases                                    |
@@ -12,12 +12,15 @@ Workshop overview and goals...
 | VM Image       | Boot & Snapshots Images  | Glance    | |
 | File           | Shared File Systems      | Manila    | |
 
+
+---
 # Workshop Exercises
 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
 * <A HREF="ObjectStorage.md">Object Exercise</A>
 
+---
 # Challenge
 
 Once you've walked through the three exercises above, tackle the challenges below!
@@ -28,6 +31,7 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * One volume 1GB (least expensive) mounted as /mnt/backups
 * One volume 1GB (encrypted) mounted as /mnt/secrets
 
+---
 # Expert Challenge
 
 * Create a virtual machine with:
