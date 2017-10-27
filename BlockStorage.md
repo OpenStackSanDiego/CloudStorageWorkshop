@@ -93,10 +93,11 @@ $ exit
 
 ### Clean Up
 
-```
+``` bash
 [user1@lab1]$ openstack volume delete webfiles
 [user1@lab1]$ openstack server delete cirros2
 [user1@lab1]$ openstack image delete cirros-snapshot
+```
 
 ## Wrap Up
 
