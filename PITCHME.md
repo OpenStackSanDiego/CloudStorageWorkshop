@@ -1,4 +1,6 @@
 # OpenStack Storage Workshop
+![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
+
 
 Workshop overview and goals...
 ---
