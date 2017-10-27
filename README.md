@@ -22,10 +22,11 @@ Workshop overview and goals...
 
 Once you've walked through the three exercises above, tackle the challenges below!
 
-* Create a a1.tiny Cirros virtual machine with:
+* Create a virtual machine with:
 * Swap on ephemeral disk
-* One 'Gold' type volume 1GB mounted as /var/www/html
-* One 'Bronze' type volume 1GB mounted as /mnt/backups
+* One volume 1GB (min 5000 IOPS) mounted as /var/www/html
+* One volume 1GB (least expensive) mounted as /mnt/backups
+* One volume 1GB (encrypted) mounted as /mnt/secrets
 
 # Expert Challenge
 
