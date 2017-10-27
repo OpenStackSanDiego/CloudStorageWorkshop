@@ -104,6 +104,5 @@ $ exit
 
 Congrats! You accomplished some basic block storage and snapshot actions!
 
-Be sure to log out of the cirros image and destroy the volume, snapshot and virtual machines.
 
 Once you're done, return back to the <A HREF="../master/README.md">main page</A> for the next type of storage!
