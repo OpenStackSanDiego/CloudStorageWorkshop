@@ -96,7 +96,7 @@ openstack security group rule create --dst-port 80 --protocol tcp --ingress --pr
 openstack security group rule create --dst-port 22 --protocol tcp --ingress --project $PROJECT default
 
 # sample file to use with Swift
-wget http://www.openstacksandiego.org/assets/heroimage.jpeg -O $USER_HOME/heroimage.jpeg > /dev/null
+curl -s https://raw.githubusercontent.com/OpenStackSanDiego/CloudStorageWorkshop/master/heroimage.jpeg -o $USER_HOME/heroimage.jpeg > /dev/null
 
 done
 
