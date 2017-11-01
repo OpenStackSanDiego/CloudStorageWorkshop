@@ -1,6 +1,6 @@
 # OpenStack Storage Workshop
 
-Workshop overview and goals...
+OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services.
 
 # Storage Functions
 
