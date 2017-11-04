@@ -34,7 +34,7 @@ done
 ip route replace "${INTERNAL_SUBNET}" via $NET_GATEWAY
 
 
-for i in $(seq 1 3)
+for i in $(seq 1 30)
 do
 
 USER=user$i
@@ -88,12 +88,12 @@ openstack user create --password "openstack" $USER
 
 openstack role create $USER
 
-openstack role add --project $PROJECT --user $USER $USER
-openstack role add --project $PROJECT --user $USER _member_
+openstack role add --project $PROJECT_ID --user $USER $USER
+openstack role add --project $PROJECT_ID --user $USER _member_
 
-SECURITY_GROUP=`openstack security group rule create --project $PROJECT default -f value -c id`
-openstack security group rule create --dst-port 80 --protocol tcp --ingress --project $PROJECT default
-openstack security group rule create --dst-port 22 --protocol tcp --ingress --project $PROJECT default
+SECURITY_GROUP=`openstack security group list --project $PROJECT_ID -f value -c ID`
+openstack security group rule create --dst-port 80 --protocol tcp --ingress $SECURITY_GROUP
+openstack security group rule create --dst-port 22 --protocol tcp --ingress $SECURITY_GROUP
 
 # sample file to use with Swift
 curl -s https://raw.githubusercontent.com/OpenStackSanDiego/CloudStorageWorkshop/master/heroimage.jpeg -o $USER_HOME/heroimage.jpeg > /dev/null
