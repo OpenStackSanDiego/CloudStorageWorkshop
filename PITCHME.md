@@ -10,9 +10,9 @@
 * @john_studarus 
 * @kylemurley
 
----?image=https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true&size=auto 90%
 
----
+---?image=https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true
+
 
 ### OpenStack Storage Workshop
 
