@@ -1,28 +1,28 @@
+<!> GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop
+
 # OpenStack Storage Workshop
 ![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
+# OpenStack Storage Workshop
 
-Workshop overview and goals...
----
+OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services.
+
 # Storage Functions
 
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
-| Object         | Object Storage           | Swift     | |
-| Ephemeral      | VM local                 | Nova      | |
+| Object         | Object Storage           | Swift     | web, mobile, unstructured data that grows |
+| Ephemeral      | VM local                 | Nova      | root disks |
 | Block          | Persistent single VM     | Cinder    | |
-| VM Image       | Boot & Snapshots Images  | Glance    | |
-| File           | Shared File Systems      | Manila    | |
+| VM Image       | Boot & Snapshots Images  | Glance    | pre-made VM image repository |
+| File           | Shared File Systems      | Manila    | file share as a service for cloud |
 
-
----
 # Workshop Exercises
 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
 * <A HREF="ObjectStorage.md">Object Exercise</A>
 
----
 # Challenge
 
 Once you've walked through the three exercises above, tackle the challenges below!
@@ -33,7 +33,6 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * One volume 1GB (least expensive) mounted as /mnt/backups
 * One volume 1GB (encrypted) mounted as /mnt/secrets
 
----
 # Expert Challenge
 
 * Create a virtual machine with:
