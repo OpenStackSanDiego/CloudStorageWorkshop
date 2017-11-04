@@ -1,11 +1,11 @@
 <!--- GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop --->
 
-# OpenStack Storage Workshop
+### OpenStack Storage Workshop
 ![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
 ---
 
-# OpenStack Storage Workshop
+### OpenStack Storage Workshop
 
 OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services.
 
@@ -23,7 +23,7 @@ OpenStack offers a variety of storage options each providing different functiona
 
 ---
 
-# Workshop Exercises
+### Workshop Exercises
 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
@@ -31,7 +31,7 @@ OpenStack offers a variety of storage options each providing different functiona
 
 ---
 
-# Challenge
+### Challenge
 
 Once you've walked through the three exercises above, tackle the challenges below!
 
@@ -41,7 +41,7 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * One volume 1GB (least expensive) mounted as /mnt/backups
 * One volume 1GB (encrypted) mounted as /mnt/secrets
 
-# Expert Challenge
+### Expert Challenge
 
 * Create a virtual machine with:
 * Web server installed on the virtual machines
