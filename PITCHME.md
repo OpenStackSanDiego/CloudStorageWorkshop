@@ -1,7 +1,7 @@
 <!--- GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop --->
 
 ### OpenStack Storage Workshop
-![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true&size=size=75% 75%)
+![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
 ---
 
@@ -16,10 +16,23 @@ OpenStack offers a variety of storage options each providing different functiona
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | Object         | Object Storage           | Swift     | web, mobile, unstructured data that grows |
+
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
 | Ephemeral      | VM local                 | Nova      | root disks |
+
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
 | Block          | Persistent single VM     | Cinder    | |
+
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
 | VM Image       | Boot & Snapshots Images  | Glance    | pre-made VM image repository |
+
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
 | File           | Shared File Systems      | Manila    | file share as a service for cloud |
+
 
 ---
 
