@@ -17,18 +17,25 @@ OpenStack offers a variety of storage options each providing different functiona
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | Object         | Object Storage           | Swift     | web, mobile, unstructured data that grows |
 
+---
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | Ephemeral      | VM local                 | Nova      | root disks |
 
+
+---
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | Block          | Persistent single VM     | Cinder    | |
 
+
+---
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | VM Image       | Boot & Snapshots Images  | Glance    | pre-made VM image repository |
 
+
+---
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
 | File           | Shared File Systems      | Manila    | file share as a service for cloud |
