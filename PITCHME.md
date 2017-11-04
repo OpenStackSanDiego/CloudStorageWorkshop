@@ -3,6 +3,7 @@
 ### OpenStack Storage Workshop
 * @john_studarus 
 * @kylemurley
+
 ![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
 ---
