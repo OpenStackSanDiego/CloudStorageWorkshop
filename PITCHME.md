@@ -1,7 +1,7 @@
 <!--- GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop --->
 
 ### OpenStack Storage Workshop
-![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
+![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true&size=size=75% 75%)
 
 ---
 
