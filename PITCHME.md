@@ -2,18 +2,12 @@
 
 ### OpenStack Storage Workshop
 
-![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
-
----
-# CloudStorageWorkshop 
-
 * @john_studarus 
 * @kylemurley
 
+![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
----?image=https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true
-
-
+---
 ### OpenStack Storage Workshop
 
 OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services.
