@@ -1,14 +1,14 @@
-<!> GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop
+<!--- GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop --->
 
 # OpenStack Storage Workshop
 ![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
-____
+___
 
 # OpenStack Storage Workshop
 
 OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services.
 
-____
+___
 
 # Storage Functions
 
@@ -19,14 +19,14 @@ ____
 | Block          | Persistent single VM     | Cinder    | |
 | VM Image       | Boot & Snapshots Images  | Glance    | pre-made VM image repository |
 | File           | Shared File Systems      | Manila    | file share as a service for cloud |
-____
+___
 
 # Workshop Exercises
 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
 * <A HREF="ObjectStorage.md">Object Exercise</A>
-____
+___
 
 # Challenge
 
@@ -46,6 +46,6 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * The system needs to be accessible from the Internet on port 80
 * Include your name/handle, lab #, and user account # in the index.html page
 * Tweet us the URL with the tag "@OpenStackSanDiego"
-____
+___
 
 
