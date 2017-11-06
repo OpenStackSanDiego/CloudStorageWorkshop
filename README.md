@@ -24,7 +24,7 @@ Once you've walked through the three exercises above, tackle the challenges belo
 
 * Create a virtual machine with:
 * Swap on ephemeral disk
-* One volume 1GB (min 5000 IOPS) mounted as /var/www/html
+* One volume 1GB (min 1000 IOPS) mounted as /var/www/html
 * One volume 1GB (least expensive) mounted as /mnt/backups
 * One volume 1GB (encrypted) mounted as /mnt/secrets
 
