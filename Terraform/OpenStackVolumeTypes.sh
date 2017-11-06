@@ -15,4 +15,4 @@ openstack volume type create --public \
 openstack volume type create --public \
 	--description "Min: 500 IOPS, Max: 100 IOPS, Burst: 3000 IOPS $5/GB/month Encrypted" \
 	Kryptonite-Encrypted
-cinder encryption-type-create Kryptonite LUKS
+cinder encryption-type-create Kryptonite-Encrypted LUKS
