@@ -1,29 +1,59 @@
-# OpenStack Storage Workshop
+<!--- GitPitch link: https://gitpitch.com/OpenStackSanDiego/CloudStorageWorkshop --->
+
+### OpenStack Storage Workshop
+* @john_studarus 
+* @kylemurley
+
 ![Logo](https://github.com/OpenStackSanDiego/CloudStorageWorkshop/blob/master/heroimage.jpeg?raw=true)
 
-
-Workshop overview and goals...
 ---
-# Storage Functions
+### OpenStack Storage Workshop
+
+OpenStack offers a variety of storage options each providing different functionality. This workshop provides a hands-on guides teaching how to use these storage services. https://github.com/OpenStackSanDiego/CloudStorageWorkshop     .
+
+---
+
+### Storage Functions
 
 | Functionality  | Description              | OpenStack | Use Cases                                    |
 | -------------- | -------------------------| ----------|--------------------------------------------- |
-| Object         | Object Storage           | Swift     | |
-| Ephemeral      | VM local                 | Nova      | |
-| Block          | Persistent single VM     | Cinder    | |
-| VM Image       | Boot & Snapshots Images  | Glance    | |
-| File           | Shared File Systems      | Manila    | |
+| Object         | Object Storage           | Swift     | web, mobile, unstructured data that grows |
+
+---
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
+| Ephemeral      | VM local                 | Nova      | root disks |
 
 
 ---
-# Workshop Exercises
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
+| Block          | Persistent single VM     | Cinder    | |
+
+
+---
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
+| VM Image       | Boot & Snapshots Images  | Glance    | pre-made VM image repository |
+
+
+---
+| Functionality  | Description              | OpenStack | Use Cases                                    |
+| -------------- | -------------------------| ----------|--------------------------------------------- |
+| File           | Shared File Systems      | Manila    | file share as a service for cloud |
+
+
+---
+
+### Workshop Exercises
 
 * <A HREF="EphemeralStorage.md">Ephemeral Exercise</A> 
 * <A HREF="BlockStorage.md">Block and Snapshot Exercise</A>  
 * <A HREF="ObjectStorage.md">Object Exercise</A>
 
 ---
-# Challenge
+
+### Challenge
 
 Once you've walked through the three exercises above, tackle the challenges below!
 
@@ -34,7 +64,8 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * One volume 1GB (encrypted) mounted as /mnt/secrets
 
 ---
-# Expert Challenge
+
+### Expert Challenge
 
 * Create a virtual machine with:
 * Web server installed on the virtual machines
@@ -43,4 +74,5 @@ Once you've walked through the three exercises above, tackle the challenges belo
 * Include your name/handle, lab #, and user account # in the index.html page
 * Tweet us the URL with the tag "@OpenStackSanDiego"
 
+---
 
