@@ -34,7 +34,7 @@ done
 ip route replace "${INTERNAL_SUBNET}" via $NET_GATEWAY
 
 
-for i in $(seq 1 30)
+for i in $(seq 1 5)
 do
 
 USER=user$i

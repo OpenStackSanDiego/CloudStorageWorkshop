@@ -14,7 +14,7 @@ variable "packet_facility" {
 
 variable "openstack_controller_count" {
   description = "Number of controllers to deploy"
-  default = "10"
+  default = "1"
 }
 
 variable "packet_controller_type" {
