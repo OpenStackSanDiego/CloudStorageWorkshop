@@ -2,6 +2,8 @@
 
 ### Volume Types Available
 
+GUI: Project->Compute->Volumes->Create Volume
+
 ```bash
 [user1@lab1]$ openstack volume type list
 [user1@lab1]$ openstack volume type show Silver
