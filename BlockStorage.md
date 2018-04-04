@@ -9,7 +9,9 @@
 
 ### Create Volume
 
-Select Silver based upon the IOPS (Input/Output operations per Second) guaranteed for that type of storage.
+Select Silver or SSH based upon the IOPS (Input/Output operations per Second) guaranteed for that type of storage.
+
+GUI: Project->Compute->Volumes->Create Volume
 
 ```bash
 [user1@lab1]$ openstack volume create --size 1 --type Silver webfiles
@@ -17,15 +19,18 @@ Select Silver based upon the IOPS (Input/Output operations per Second) guarantee
 
 ### Add the Volume to the Instance
 
+GUI:  Project->Compute->Instances->YOUR_INSTANCE_NAME->Attach Volume
+
 ```bash
 [user1@lab1]$ openstack server add volume --device /dev/vdc cirros webfiles
 ```
 
 ### Utilize the Volume
 
+
+Login via SSH or PuTTy
+
 ```
-[user1@lab1]$ openstack server list
-[user1@lab1]$ ssh cirros@CIRROS_IP_ADDR_HERE
 $ sudo su -
 # fdisk -l
 # mkdir /var/www/
@@ -44,6 +49,8 @@ $ exit
 
 ### Deallocate the Volume from the Virtual Machine
 
+GUI:  Project->Compute->Instances->YOUR_INSTANCE_NAME->Detach Volume
+
 ```bash
 [user1@lab1]$ openstack server remove volume cirros webfiles
 [user1@lab1]$ openstack server list
@@ -51,6 +58,9 @@ $ exit
 ```
 
 ### Snapshot and Delete the Virtual Machine
+
+GUI:  Project->Compute->Volumes->YOUR_VOLUME_NAME->Create Snapshot
+GUI:  Project->Compute->Instances->YOUR_INSTANCE_NAME->Delete Instance
 
 ```bash
 [user1@lab1]$ openstack server image create --name cirros-snapshot cirros
@@ -63,12 +73,15 @@ $ exit
 
 ### Create a replacement Virtual Machine from the Snapshot
 
+GUI:  Project->Compute->Instances->Create Instance
+
 ```bash
 [user1@lab1]$ openstack server create --flavor a1.tiny --image cirros-snapshot --nic net-id=internal cirros2
 ```
 
 ### Move the volume to a second instance
 
+UI:  Project->Compute->Instances->YOUR_INSTANCE_NAME->Attach Volume
 
 ```bash
 [user1@lab1]$ openstack server list
@@ -79,9 +92,9 @@ $ exit
 
 ### Mount the volume on the second instance
 
+Login via SSH or PuTTY
+
 ```bash
-[user1@lab1]$ openstack server list
-[user1@lab1]$ ssh cirros@CIRROS2_IP_ADDR_HERE
 $ sudo su -
 # ls /var/www
 # blkid
@@ -94,6 +107,8 @@ $ exit
 ```
 
 ### Clean Up
+
+GUI: delete the instances and volumes
 
 ``` bash
 
