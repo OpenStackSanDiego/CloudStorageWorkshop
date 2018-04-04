@@ -2,11 +2,13 @@
 
 Log into the OpenStack Horizon web dashboard and proceed to the object storage page. Use the OpenStack lab URL and username/password provided.
 
-* Object Store->Container
+* GUI: Object Store->Container
 
 ### Create Bucket
 
 Use the Horizon dashboard to create a new object storage bucket with public access.
+
+* GUI: Object Store->Containers->+Container
 
 ```bash
 [user1@lab1]$ openstack container create images
@@ -16,6 +18,8 @@ Use the Horizon dashboard to create a new object storage bucket with public acce
 ### Upload Data
 
 There's a default file heroimage.jpeg available to be uploaded into Swift.
+
+* GUI: Object Store->Container->UP Arrow Icon (on right)
 
 ```bash
 [user1@lab1]$ openstack container list
@@ -32,7 +36,11 @@ Using the CLI, retrieve the account number and use it to create a link to the fi
 [user1@lab1]$ openstack container show images -f value -c account
 ```
 
-Build the URL using the format below:
+Build the Limestone Networks URL using the format below:
+
+http://objects-us-dfw-1.cloud.lstn.net/swift/v1/CONTAINER_NAME/FILE_NAME
+
+Build the Lab URL using the format below:
 
 http://LAB_URL:8080/v1/ACCOUNT_NUMBER/CONTAINER_NAME/FILE_NAME
 
